@@ -1,28 +1,27 @@
 name: Java CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: push
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Java JDK
-        uses: actions/setup-java@v3.13.0
-        with:
-          java-version: '17'
-          distribution: 'oracle'
-      - name: Build with Maven
-        run: mvn clean package -DskipTests
+      - uses: actions/checkout@v2
 
-      - name: Upload JAR file
+      - name: Set up JDK 8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+
+      - name: Compile code
+        run: javac -sourcepath src -d bin src/*.java
+
+      - name: Package jar
+        run: jar cvfe ${{ github.event.repository.name }}.jar com.MainClass -C bin .
+
+      - name: Upload jar artifact
         uses: actions/upload-artifact@v2
         with:
-          name: TankGame
-          path: target/${{ github.event.repository.name }}.jar
+          name: app
+          path: ${{ github.event.repository.name }}.jar
