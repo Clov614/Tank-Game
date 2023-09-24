@@ -16,6 +16,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 8
+      - name: Set compile encoding
+        run: echo "JAVA_TOOL_OPTIONS=-encoding UTF-8" >> $GITHUB_ENV
 
       - name: Compile code
         run: javac -sourcepath src -d bin src/*.java
