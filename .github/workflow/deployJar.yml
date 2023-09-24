@@ -1,0 +1,26 @@
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3.13.0
+        with:
+          java-version: '8'
+          distribution: 'oracle'
+      - name: Build with Maven
+        run: mvn clean package -DskipTests
+
+      - name: Upload JAR file
+        uses: actions/upload-artifact@v2
+        with:
+          name: TankGame
+          path: target/${{ github.event.repository.name }}.jar
