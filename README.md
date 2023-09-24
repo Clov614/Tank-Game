@@ -25,7 +25,11 @@ or
 Builing the `start.bat` write: (Only windows)
 
 ```bash
-start java -jar TankGame.jar
+start java -jar Tank-Game.jar
+```
+OR
+```bash
+start /B java -jar TankGame.jar
 ```
 
 ## Demo
