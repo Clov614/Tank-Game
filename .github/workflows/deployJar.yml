@@ -30,7 +30,11 @@ jobs:
 
       - name: Release
         uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: startsWith(github.ref, 'refs/tags/')
         with:
+          timeout: 60s
+          retries: 3
           files: |
             ${{ github.event.repository.name }}.jar
