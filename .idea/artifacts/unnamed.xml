@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="unnamed">
+    <output-path>$PROJECT_DIR$/out/artifacts/unnamed</output-path>
+    <root id="root">
+      <element id="module-output" name="TankGame" />
+      <element id="directory" name="source">
+        <element id="dir-copy" path="$PROJECT_DIR$/source" />
+      </element>
+    </root>
+  </artifact>
+</component>
