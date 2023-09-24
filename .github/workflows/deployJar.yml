@@ -20,7 +20,7 @@ jobs:
         run: javac -encoding UTF-8 -sourcepath src -d bin src/*.java
 
       - name: Package jar
-        run: jar cvfe ${{ github.event.repository.name }}.jar com.MainClass -C bin .
+        run: jar cvfe ${{ github.event.repository.name }}.jar TankGameMain -C bin .
 
       - name: Upload jar artifact
         uses: actions/upload-artifact@v2

@@ -43,6 +43,6 @@ public class TankGameMain extends JFrame {
     }
 }
 
-// TODO 完善清空敌方坦克显示victory
+// TODO 完善清空敌方坦克显示 victory
 // TODO 击杀坦克声音 计时
 // TODO 完善地形方块河流类 // TODO 完善关卡地图
